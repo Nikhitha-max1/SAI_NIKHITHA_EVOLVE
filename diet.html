@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nutrition | SAI NIKHITHA EVOLVE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================================
+           NUTRITION PAGE
+        ========================================= */
+
+        .nutrition-page {
+            background: #050505;
+        }
+
+        /* HERO */
+
+        .nutrition-hero {
+            padding: 120px 7% 100px;
+            background: #111111;
+            color: #f3f0e8;
+        }
+
+        .nutrition-hero .kicker {
+            color: #d2a889;
+        }
+
+        .nutrition-hero h1 {
+            max-width: 900px;
+            margin: 18px 0 25px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: .92;
+            font-weight: 500;
+        }
+
+        .nutrition-hero h1 span {
+            color: #d2a889;
+            font-style: italic;
+        }
+
+        .nutrition-hero p {
+            max-width: 620px;
+            color: #aaa9a2;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* INTRO */
+
+        .nutrition-intro {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .nutrition-intro h2 {
+            margin: 15px 0 20px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 65px);
+            font-weight: 500;
+            line-height: 1.05;
+        }
+
+        .nutrition-intro h2 em {
+            color: #d2a889;
+        }
+
+        .nutrition-intro p {
+            max-width: 650px;
+            margin: auto;
+            color: #a8a8a0;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* CARDS SECTION */
+
+        .nutrition-section {
+            padding: 40px 7% 110px;
+        }
+
+        .nutrition-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+            align-items: stretch;
+        }
+
+        /* CARD */
+
+        .nutrition-card {
+            background: #151515;
+            border: 1px solid #2a2a2a;
+
+            display: flex;
+            flex-direction: column;
+
+            min-width: 0;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .nutrition-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(30, 31, 27, .12);
+        }
+
+        /* IMAGE */
+
+        .nutrition-image {
+            width: 100%;
+            height: 360px;
+
+            overflow: hidden;
+            background: #111111;
+        }
+
+        .nutrition-image img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+
+            transition: transform .6s ease;
+        }
+
+        .nutrition-card:hover .nutrition-image img {
+            transform: scale(1.04);
+        }
+
+        /* CARD CONTENT */
+
+        .nutrition-content {
+            padding: 30px 28px 35px;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+        .nutrition-number {
+            color: #d2a889;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .nutrition-content h3 {
+            margin: 0 0 22px;
+
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        /* MEALS */
+
+        .nutrition-meals {
+            margin-top: auto;
+        }
+
+        .nutrition-meal {
+            padding: 15px 0;
+
+            border-top: 1px solid #2a2a2a;
+
+            color: #a8a8a0;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .nutrition-meal strong {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #f0eee7;
+
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* BOTTOM CTA */
+
+        .nutrition-cta {
+            padding: 100px 7%;
+
+            background: #101010;
+        }
+
+        .nutrition-cta-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 50px;
+        }
+
+        .nutrition-cta h2 {
+            margin: 0;
+
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1;
+            font-weight: 500;
+        }
+
+        .nutrition-cta h2 em {
+            color: #d2a889;
+        }
+
+        .nutrition-cta p {
+            max-width: 500px;
+
+            color: #a8a8a0;
+            line-height: 1.8;
+        }
+
+        /* FOOTER FIX */
+
+        footer {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+
+            width: 100%;
+
+            clear: both;
+        }
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 950px) {
+
+            .nutrition-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nutrition-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                width: 100%;
+                justify-self: center;
+            }
+
+            .nutrition-image {
+                height: 330px;
+            }
+
+            .nutrition-cta-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .nutrition-hero {
+                padding: 80px 6% 70px;
+            }
+
+            .nutrition-hero h1 {
+                font-size: 52px;
+            }
+
+            .nutrition-intro {
+                padding: 70px 6% 35px;
+            }
+
+            .nutrition-section {
+                padding: 25px 6% 75px;
+            }
+
+            .nutrition-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .nutrition-card:last-child {
+                grid-column: auto;
+                max-width: none;
+            }
+
+            .nutrition-image {
+                height: 300px;
+            }
+
+            .nutrition-content {
+                padding: 26px 23px 30px;
+            }
+
+            .nutrition-content h3 {
+                font-size: 29px;
+            }
+
+            .nutrition-cta {
+                padding: 70px 6%;
+            }
+        }
+    </style>
+<style id="dark-theme-final-override">html,body{background:#050505!important;color:#f3f0e8!important}header.nav{background:#050505!important;color:#f3f0e8!important}main{background:#050505!important}footer{background:#030303!important;color:#bdbdb8!important}.section{background:#050505!important}.sage{background:#0b0d0b!important}.clay{background:#17120f!important}.pagehero{background:#090909!important}</style></head>
+
+
+<body class="nutrition-page">
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="nav">
+
+        <a class="logo" href="index.html">
+            SAI NIKHITHA
+            <small>EVOLVE</small>
+        </a>
+
+        <nav class="links">
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="programs.html">Programs</a>
+            <a href="trainers.html">Trainers</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="membership.html">Membership</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="diet.html">Nutrition</a>
+            <a href="contact.html">Contact</a>
+            <a href="bmi.html">BMI</a>
+
+        </nav>
+
+        <a class="book" href="membership.html">
+            Book a visit
+        </a>
+
+        <button class="menu">
+            ☰
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             HERO
+        ========================================== -->
+
+        <section class="nutrition-hero">
+
+            <div class="wrap">
+
+                <div class="kicker">
+                    09 / NUTRITION
+                </div>
+
+                <h1>
+                    Nourish your
+                    <span>evolution.</span>
+                </h1>
+
+                <p>
+                    Nutrition is not about restriction.
+                    It is about giving your body the fuel,
+                    consistency and nourishment it needs to perform,
+                    recover and thrive.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             INTRO
+        ========================================== -->
+
+        <section class="nutrition-intro">
+
+            <div class="kicker">
+                THE EVOLVE APPROACH
+            </div>
+
+            <h2>
+                Eat with <em>intention.</em>
+            </h2>
+
+            <p>
+                Build simple, sustainable eating habits around your
+                training, lifestyle and goals. No extreme rules.
+                Just better choices, made consistently.
+            </p>
+
+        </section>
+
+
+        <!-- =========================================
+             NUTRITION CARDS
+        ========================================== -->
+
+        <section class="nutrition-section">
+
+            <div class="nutrition-grid">
+
+
+                <!-- CARD 01 -->
+
+                <article class="nutrition-card">
+
+                    <div class="nutrition-image">
+                        <img
+                            src="images/Nutrition1.png"
+                            alt="Balanced everyday nutrition"
+                        >
+                    </div>
+
+                    <div class="nutrition-content">
+
+                        <div class="nutrition-number">
+                            01 / BALANCED
+                        </div>
+
+                        <h3>
+                            Everyday Fitness
+                        </h3>
+
+                        <div class="nutrition-meals">
+
+                            <div class="nutrition-meal">
+                                <strong>Breakfast</strong>
+                                Oats or dosa + curd + fruit
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Lunch</strong>
+                                Rice or roti + dal + vegetables
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Snack</strong>
+                                Fruit + roasted chana
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Dinner</strong>
+                                Protein + vegetables + moderate carbs
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 02 -->
+
+                <article class="nutrition-card">
+
+                    <div class="nutrition-image">
+                        <img
+                            src="images/Strength2.png"
+                            alt="Performance nutrition for strength"
+                        >
+                    </div>
+
+                    <div class="nutrition-content">
+
+                        <div class="nutrition-number">
+                            02 / PERFORMANCE
+                        </div>
+
+                        <h3>
+                            Strength &amp; Muscle
+                        </h3>
+
+                        <div class="nutrition-meals">
+
+                            <div class="nutrition-meal">
+                                <strong>Breakfast</strong>
+                                Oats + banana + protein-rich side
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Lunch</strong>
+                                Rice + dal + protein + vegetables
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Pre-workout</strong>
+                                Fruit + light carbohydrate snack
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Post-workout</strong>
+                                Protein-rich meal + fluids
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 03 -->
+
+                <article class="nutrition-card">
+
+                    <div class="nutrition-image">
+                        <img
+                            src="images/Wellness1.png"
+                            alt="Wellness and healthy nutrition"
+                        >
+                    </div>
+
+                    <div class="nutrition-content">
+
+                        <div class="nutrition-number">
+                            03 / LEAN
+                        </div>
+
+                        <h3>
+                            Lean &amp; Active
+                        </h3>
+
+                        <div class="nutrition-meals">
+
+                            <div class="nutrition-meal">
+                                <strong>Breakfast</strong>
+                                Vegetable upma or poha + curd
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Lunch</strong>
+                                Vegetables + dal + moderate carbs
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Snack</strong>
+                                Fruit + nuts or chana
+                            </div>
+
+                            <div class="nutrition-meal">
+                                <strong>Dinner</strong>
+                                Protein + vegetables
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CTA
+        ========================================== -->
+
+        <section class="nutrition-cta">
+
+            <div class="nutrition-cta-inner">
+
+                <div>
+
+                    <div class="kicker">
+                        PERSONAL GUIDANCE
+                    </div>
+
+                    <h2>
+                        Your nutrition.<br>
+                        <em>Your evolution.</em>
+                    </h2>
+
+                </div>
+
+                <div>
+
+                    <p>
+                        Build a nutrition strategy that works
+                        alongside your training and lifestyle.
+                    </p>
+
+                    <a
+                        class="btn dark"
+                        href="contact.html"
+                    >
+                        Speak with us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="wrap foot">
+
+            <div class="foot-brand">
+                SAI NIKHITHA
+                <small>EVOLVE</small>
+            </div>
+
+            <div>
+                Transform Your Body.
+                Strengthen Your Mind.
+                Become Your Best.
+            </div>
+
+            <div>
+                © 2026 SAI NIKHITHA EVOLVE
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
